@@ -1,0 +1,45 @@
+body{
+    display: grid;
+    justify-items: center;
+    padding: 4em;
+    gap: 3em;
+}
+.newBook{
+    border: solid green;
+    height: auto;
+    width: 300px;
+}
+
+#inputData{
+    display: grid;
+    width: fit-content;
+    gap: 1em;
+    border: solid white 2px;
+    padding: 2em;
+    border-radius: 8px;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#inputData div{
+    gap: 0.5em;
+}
+
+input{
+    border: solid white;
+    border-radius: 4px;
+}
+
+.divLong{
+    display: flex;
+    flex-direction: column;
+}
+#read{
+    width: fit-content;
+}
+
+#numPages{
+    width: 2.5em;
+}
