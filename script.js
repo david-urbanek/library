@@ -1,4 +1,4 @@
-const myLibrary = [new Book("Harry Potter", "Leslie Grosmann")];
+const myLibrary = [new Book("Harry Potter Philosopher's Stone", "J. K. Rowling", 309, "not read")];
 
 function Book(bookName, author, numPages, read) {
   this.name = bookName;
