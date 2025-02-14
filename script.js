@@ -19,13 +19,16 @@ const myLibrary = [
 function addBook(bookName, author, numPages, read) {
   const newBook = new Book(bookName, author, numPages, read);
   myLibrary.push(newBook);
-  displayBook();
+  ControlUI.createBook();
 }
 
-let index;
+class ControlUI {
+  static index = -1;
 
-function displayBook() {
-  function createBook(id) {
+  static createBook() {
+    this.index += 1;
+    let id = this.index;
+
     const newBook = document.createElement("div");
     newBook.classList.add("newBook");
     newBook.setAttribute("id", `book${id}`);
@@ -80,21 +83,14 @@ function displayBook() {
     document
       .querySelector(`#newBookReadStatusChangeButton${id}`)
       .addEventListener("click", function () {
-        if (myLibrary[index].read == "read") {
-          myLibrary[index].read = "not read";
+        if (myLibrary[id].read == "read") {
+          myLibrary[id].read = "not read";
           newBookStatusRead.textContent = `Status: ${myLibrary[id].read}`;
         } else {
-          myLibrary[index].read = "read";
+          myLibrary[id].read = "read";
           newBookStatusRead.textContent = `Status: ${myLibrary[id].read}`;
         }
       });
-  }
-  if (index > 0) {
-    createBook(myLibrary.length - 1);
-  } else {
-    for (index = 0; index < myLibrary.length; index++) {
-      createBook(index);
-    }
   }
 }
 
@@ -117,4 +113,4 @@ document.querySelector("#submitButton").addEventListener("click", function () {
   addBook(bookName, author, numPages, read);
 });
 
-displayBook();
+ControlUI.createBook();
